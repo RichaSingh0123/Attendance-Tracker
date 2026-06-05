@@ -1,7 +1,54 @@
-# Member Dashboard – Person 4
+# Member Dashboard 
 
-React component for the **Founders Club Attendance Tracker** covering all Person 4 responsibilities:
+React component for the **Founders Club Attendance Tracker** :
 member dashboard UI, attendance stats, history table with filters, analytics charts, and profile page.
+
+---
+
+## File Location
+
+```
+Attendance-Tracker/
+└── src/
+    └── components/
+        └── MemberDashboard.jsx   ← this file
+```
+
+---
+
+## Route Setup (coordinate with Person 2)
+
+This is a **Next.js App Router** project — no React Router needed. To wire up the dashboard, create:
+
+```
+Attendance-Tracker/
+└── src/
+    └── app/
+        └── dashboard/
+            └── page.tsx    ← create this new file
+```
+
+Paste this inside `page.tsx`:
+
+```tsx
+import MemberDashboard from "@/components/MemberDashboard";
+
+export default function DashboardPage() {
+  return <MemberDashboard />;
+}
+```
+
+The dashboard will be live at `/dashboard`.
+
+---
+
+## Branch & Repo
+
+| Field | Value |
+|---|---|
+| Branch | `feature/FeTrack` |
+| Fork | `RichaSingh0123/Attendance-Tracker` |
+| Upstream | `founder-srm/Attendance-Tracker` |
 
 ---
 
@@ -81,79 +128,4 @@ The dashboard opens in dark mode by default. Change to `"light"` if preferred.
 
 ```js
 const [theme, setTheme] = useState("dark"); // ← change to "light" if needed
-```
-
----
-
-## How to Push to GitHub
-
-### First-time setup (only once)
-
-```bash
-# 1. Fork the repo on GitHub (go to FC OS org → founders-attendance-frontend → Fork)
-
-# 2. Clone your fork locally
-git clone https://github.com/YOUR_USERNAME/founders-attendance-frontend.git
-cd founders-attendance-frontend
-
-# 3. Add the original repo as upstream (to pull future updates)
-git remote add upstream https://github.com/FC-OS/founders-attendance-frontend.git
-```
-
-### Every time you push new work
-
-```bash
-# 1. Make sure you're on main and up to date
-git checkout main
-git pull upstream main
-
-# 2. Create your feature branch (FeTrack = short for your role)
-git checkout -b feature/FeTrack
-
-# 3. Copy MemberDashboard.jsx into the right folder
-#    (ask Person 2 for the exact src/ structure they set up)
-cp MemberDashboard.jsx src/pages/MemberDashboard.jsx
-
-# 4. Stage your files
-git add src/pages/MemberDashboard.jsx
-
-# 5. Commit with a clear message
-git commit -m "Add member dashboard with attendance stats, history, charts, and profile"
-
-# 6. Push to your fork
-git push origin feature/FeTrack
-
-# 7. Open GitHub → your fork → click "Compare & Pull Request"
-#    Fill in the PR description explaining what changed and why
-#    Wait for someone else to review and approve — don't merge your own PR
-```
-
-### Subsequent updates (e.g. swapping mock data for real Supabase calls)
-
-```bash
-git checkout feature/FeTrack       # go back to your branch
-# make your changes...
-git add src/pages/MemberDashboard.jsx
-git commit -m "Connect member dashboard to Supabase attendance table"
-git push origin feature/FeTrack    # updates the existing PR automatically
-```
-
----
-
-## File Location
-
-```
-founders-attendance-frontend/
-└── src/
-    └── pages/
-        └── MemberDashboard.jsx   ← this file
-```
-
-## Route Setup (coordinate with Person 2)
-
-```jsx
-// In your router file (App.jsx or routes.jsx)
-import MemberDashboard from "./pages/MemberDashboard";
-
-<Route path="/dashboard" element={<MemberDashboard />} />
 ```
